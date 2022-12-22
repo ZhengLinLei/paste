@@ -59,6 +59,7 @@ window.addEventListener('load', () => {
             localStorage.setItem('dark', false);
         });
 
+        console.log(WINDOW_CONFIG.current, WINDOW_CONFIG.windows)
         // If the url hasn't generated any, create one
         if(WINDOW_CONFIG.current == 0) addWindow();
 
@@ -130,7 +131,7 @@ window.addEventListener('load', () => {
             __main__();
             return;
         }
-
+        console.log(base64)
         // Decode base64
 
         let r = await fetch("data:application/octet-stream;base64," + base64);
@@ -145,6 +146,7 @@ window.addEventListener('load', () => {
                 // Write each window
                 try {
                     const arrayData = JSON.parse(plaintext);
+                    console.log(arrayData)
                     // If it is a object
                     if(typeof arrayData === 'object'){
                         arrayData.forEach((el, i) => {
