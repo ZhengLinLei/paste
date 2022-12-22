@@ -78,9 +78,11 @@ window.addEventListener('load', () => {
 
 
         // ==== URL GENERATOR =========
-        document.querySelectorAll('#generate-url').forEach(btn => {
+        document.querySelectorAll('.generate-url').forEach(btn => {
             btn.addEventListener('click', () => {
                 const btn_type = btn.getAttribute('data-type');
+
+                console.log(btn_type)
 
                 // Get all windows
                 WINDOW_CONFIG.windows.forEach((window, index) => WINDOW_CONFIG.windows_value[index] = window.value);
