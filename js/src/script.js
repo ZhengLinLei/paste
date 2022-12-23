@@ -31,6 +31,11 @@ window.addEventListener('load', () => {
             const newWindow = document.createElement('textarea');
             newWindow.setAttribute('class', 'textarea-main');
             newWindow.setAttribute('spellcheck', 'false');
+            newWindow.setAttribute('outline', 'none');
+            newWindow.setAttribute('autocorrect', 'off');
+            newWindow.setAttribute('autocapitalize', 'off');
+            newWindow.setAttribute('aria-label', 'Paste Editor');
+            newWindow.setAttribute('tabindex', '0');
             WINDOW_CONFIG.parent.appendChild(newWindow);
             WINDOW_CONFIG.windows.push(newWindow);
             WINDOW_CONFIG.current++;
