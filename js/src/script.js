@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
 
     // ==============================================================
     // === LZMA =========
-    var lzma = new LZMA("./js/min/lzma_worker.min.js");
+    var lzma = new LZMA("./js/src/lzma_worker.js");
 
     // ==== ROOT =========
     const ROOT = {
