@@ -85,7 +85,7 @@ body{
         background-color: rgba(rgb(0, 0, 0), 0.8);
         color: #ffffff;
         width: 100vw;
-        position: absolute;
+        position: fixed;
         bottom: 0;
         left: 0;
         .nav-text-offer {
@@ -127,6 +127,9 @@ body{
         > footer{
             .nav-default .mobile-unshow{
                 display: none;
+            }
+            .nav-default{
+                justify-content: space-around;
             }
         }
     }
