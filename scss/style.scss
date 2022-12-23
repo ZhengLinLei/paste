@@ -73,7 +73,8 @@ body{
                 outline: none;
                 flex: 1;
                 // white-space: nowrap;  --------> Doesn't work in safari
-                white-space: pre-wrap;
+                // white-space: pre-wrap;
+                white-space: pre;
             }
         }
     }
