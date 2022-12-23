@@ -89,12 +89,14 @@ window.addEventListener('load', () => {
 
                 // Compress
                 lzma.compress(JSON.stringify(WINDOW_CONFIG.windows_value), 1, (compressed, error) => {
+                    console.log('compressed');
                     if (error) {
                         alert("Failed to compress data: " + error);
                         return;
                     }
                     let reader = new FileReader();
                     reader.onload = function () {
+                        console.log('loaded')
                         let base64 = reader.result.substr(reader.result.indexOf(",") + 1);
                         let url = "https://" + ROOT.url.host + ROOT.url.pathname + "#" + base64;
                         var result = (btn_type === 'markdown') ? "[paste](" + url + ")" : url;
