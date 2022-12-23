@@ -59,7 +59,6 @@ window.addEventListener('load', () => {
             localStorage.setItem('dark', false);
         });
 
-        console.log(WINDOW_CONFIG.current, WINDOW_CONFIG.windows)
         // If the url hasn't generated any, create one
         if(WINDOW_CONFIG.current == 0) addWindow();
 
@@ -82,21 +81,17 @@ window.addEventListener('load', () => {
             btn.addEventListener('click', () => {
                 const btn_type = btn.getAttribute('data-type');
 
-                console.log(btn_type)
-
                 // Get all windows
                 WINDOW_CONFIG.windows.forEach((window, index) => WINDOW_CONFIG.windows_value[index] = window.value);
 
                 // Compress
                 lzma.compress(JSON.stringify(WINDOW_CONFIG.windows_value), 1, (compressed, error) => {
-                    console.log('compressed');
                     if (error) {
                         alert("Failed to compress data: " + error);
                         return;
                     }
                     let reader = new FileReader();
                     reader.onload = function () {
-                        console.log('loaded')
                         let base64 = reader.result.substr(reader.result.indexOf(",") + 1);
                         let url = "https://" + ROOT.url.host + ROOT.url.pathname + "#" + base64;
                         var result = (btn_type === 'markdown') ? "[paste](" + url + ")" : url;
@@ -135,7 +130,6 @@ window.addEventListener('load', () => {
             __main__();
             return;
         }
-        console.log(base64)
         // Decode base64
 
         let r = await fetch("data:application/octet-stream;base64," + base64);
@@ -150,7 +144,6 @@ window.addEventListener('load', () => {
                 // Write each window
                 try {
                     const arrayData = JSON.parse(plaintext);
-                    console.log(arrayData)
                     // If it is a object
                     if(typeof arrayData === 'object'){
                         arrayData.forEach((el, i) => {
