@@ -148,6 +148,7 @@ window.addEventListener('load', () => {
                     if(typeof arrayData === 'object'){
                         arrayData.forEach((el, i) => {
                             addWindow();
+                            console.log(el);
                             // Write data
                             WINDOW_CONFIG.windows[i].value = el;
                         });
