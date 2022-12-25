@@ -36,6 +36,17 @@ window.addEventListener('load', () => {
             newWindow.setAttribute('autocapitalize', 'off');
             newWindow.setAttribute('aria-label', 'Paste Editor');
             newWindow.setAttribute('tabindex', '0');
+            newWindow.addEventListener('keydown', (e) => {
+                // Write tab on tab press
+                if(e.key == 'Tab') {
+                    e.preventDefault();
+                    const start = newWindow.selectionStart;
+                    const end = newWindow.selectionEnd;
+                    newWindow.value = newWindow.value.substring(0, start) + "\t" + newWindow.value.substring(end);
+                    newWindow.selectionStart = newWindow.selectionEnd = start + 1;
+                }
+            });
+
             WINDOW_CONFIG.parent.appendChild(newWindow);
             WINDOW_CONFIG.windows.push(newWindow);
             WINDOW_CONFIG.current++;
